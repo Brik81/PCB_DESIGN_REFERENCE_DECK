@@ -1,0 +1,55 @@
+# Interface electrical reference values (cards 08, 11).
+# status: VERIFIED | CROSS-CHECKED | SECONDARY (widely tabulated, primary not read) | UNVERIFIED
+
+[diff_impedance]
+title = "Nominal differential impedance of the interconnect"
+source = "interface specifications as commonly summarised in vendor layout guides (USB-IF, PCI-SIG, IEEE 802.3, HDMI, TIA/EIA-644, ISO 11898-2, TIA-485)"
+status = "SECONDARY"
+# name, ohm, note
+rows = [
+  ["USB 2.0 HS", 90, "±15 %"],
+  ["USB 3.x", 90, "SS pairs"],
+  ["PCIe Gen3+", 85, "100 also used"],
+  ["Ethernet", 100, "MDI pairs"],
+  ["HDMI / DVI", 100, "TMDS"],
+  ["LVDS", 100, "TIA/EIA-644"],
+  ["CAN", 120, "cable, term."],
+  ["RS-485", 120, "cable, term."],
+]
+
+[usb2_pins]
+title = "USB 2.0 connector pins"
+source = "USB 2.0 Specification, table 6-1 (Standard-A/B); Micro-USB Cables and Connectors Specification rev 1.01, table 4-1"
+status = "SECONDARY"
+rows = [["1", "VBUS", "VBUS"], ["2", "D−", "D−"], ["3", "D+", "D+"], ["4", "GND", "ID"], ["5", "", "GND"]]
+
+[de9_rs232]
+title = "RS-232 on DE-9, DTE (PC) side"
+source = "TIA-574 pin assignment as widely published"
+status = "SECONDARY"
+rows = [["1", "DCD"], ["2", "RXD"], ["3", "TXD"], ["4", "DTR"], ["5", "GND"], ["6", "DSR"], ["7", "RTS"], ["8", "CTS"], ["9", "RI"]]
+
+[qwiic]
+title = "Qwiic / STEMMA QT 4-pin JST SH (1.0 mm)"
+source = "SparkFun Qwiic connect system documentation (pin 1 GND black, 2 3.3V red, 3 SDA blue, 4 SCL yellow)"
+status = "SECONDARY"
+rows = [["1", "GND"], ["2", "3.3V"], ["3", "SDA"], ["4", "SCL"]]
+
+[spi_modes]
+title = "SPI modes"
+source = "Motorola SPI convention as used by vendor data sheets"
+status = "SECONDARY"
+# mode, CPOL, CPHA, sample edge
+rows = [["0", "0", "0", "rising"], ["1", "0", "1", "falling"], ["2", "1", "0", "falling"], ["3", "1", "1", "rising"]]
+
+[i2c_speeds]
+title = "I2C bus speed modes"
+source = "NXP UM10204 I2C-bus specification rev 7"
+status = "SECONDARY"
+rows = [["Sm", "100 kbit/s"], ["Fm", "400 kbit/s"], ["Fm+", "1 Mbit/s"], ["Hs", "3.4 Mbit/s"]]
+
+[swd10]
+title = "Arm Cortex Debug 10-pin (1.27 mm)"
+source = "Arm CoreSight / Keil 'Cortex Debug connector (10-pin)' pinout as published by Arm and Segger"
+status = "SECONDARY"
+rows = [["1", "VTref"], ["2", "SWDIO/TMS"], ["3", "GND"], ["4", "SWCLK/TCK"], ["5", "GND"], ["6", "SWO/TDO"], ["7", "key / NC"], ["8", "NC/TDI"], ["9", "GNDDetect"], ["10", "nRESET"]]

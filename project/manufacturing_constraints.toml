@@ -1,0 +1,40 @@
+# Reference fabricator capabilities. These are ONE manufacturer's published
+# values and must be re-confirmed before ordering. Other fabs differ.
+
+[reference_fab]
+name = "JLCPCB"
+source = "https://jlcpcb.com/capabilities/pcb-capabilities"
+accessed = "2026-10-19"
+
+[reference_fab.values]
+thicknesses_mm = [0.4, 0.6, 0.8, 1.0, 1.2, 1.6, 2.0]
+thickness_tolerance = "+/-10 % for >= 1.0 mm"
+track_space_1oz_2layer_mm = [0.10, 0.10]
+track_space_2oz_2layer_mm = [0.16, 0.16]
+min_via_hole_mm = 0.15
+min_via_diameter_mm = 0.25
+min_pth_mm = 0.15
+preferred_min_pth_mm = 0.20
+max_drill_mm = 6.3
+min_npth_mm = 0.50
+pth_tolerance = "+0.13/-0.08 mm"
+npth_slot_tolerance = "+/-0.2 mm"
+annular_ring_2layer_mm = "0.25 recommended, 0.18 absolute min"
+min_silk_line_mm = 0.15
+min_silk_text_height_mm = 1.0
+silk_to_pad_mm = 0.15
+copper_to_routed_edge_mm = 0.2
+outline_tolerance = "+/-0.2 mm (regular), +/-0.1 mm (high precision)"
+mask_dam_black_1oz_mm = 0.13
+mask_colors = ["Green", "Purple", "Red", "Yellow", "Blue", "White", "Black"]
+finishes = ["HASL", "HASL lead-free", "ENIG", "OSP"]
+min_bga_pad_mm = 0.20
+
+[order]
+layers = 2
+thickness_mm = 1.0
+copper_oz = 1
+mask = "Black"
+silk = "White"
+finish = "ENIG"          # flat finish needed for fine-pitch reference pads; gold accent colour
+remove_order_number = "specify location or 'no order number' option"

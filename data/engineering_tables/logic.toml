@@ -1,0 +1,16 @@
+# Logic input/output thresholds (V) printed on card 10.
+# status: VERIFIED | CROSS-CHECKED | SECONDARY (widely tabulated, primary not read) | UNVERIFIED
+
+[levels]
+title = "Logic thresholds at the stated supply"
+source = "JEDEC JESD8C (LVTTL/LVCMOS 3.3 V), JESD8-7A (1.8 V), JESD8-5A (2.5 V); 74HC and TTL values from common vendor data sheets (TI, Nexperia)"
+status = "SECONDARY"
+note = "always check the actual part: many 3.3 V parts use 0.3/0.7 VDD CMOS thresholds"
+# family, VDD, VIL max, VIH min, VOL max, VOH min
+rows = [
+  ["TTL 5 V", 5.0, 0.8, 2.0, 0.4, 2.4],
+  ["HC 5 V", 5.0, 1.5, 3.5, 0.1, 4.9],
+  ["LVTTL 3.3", 3.3, 0.8, 2.0, 0.4, 2.4],
+  ["LVCMOS 2.5", 2.5, 0.7, 1.7, 0.4, 2.0],
+  ["LVCMOS 1.8", 1.8, 0.63, 1.17, 0.45, 1.35],
+]

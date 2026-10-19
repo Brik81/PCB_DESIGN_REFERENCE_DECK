@@ -1,0 +1,15 @@
+# Manufacturing reference tables printed on card 14.
+# status: VERIFIED | CROSS-CHECKED | SECONDARY (widely tabulated, primary not read) | UNVERIFIED
+
+[finishes]
+title = "Surface finishes"
+source = "fabricator finish guides (e.g. JLCPCB, PCBWay, Eurocircuits) and IPC-4552/4553/4554 as summarised"
+status = "SECONDARY"
+# finish, flat?, note
+rows = [
+  ["HASL (Sn/Pb, LF)", "no", "cheap, robust; uneven for fine pitch"],
+  ["ENIG", "yes", "Ni ~3-6 µm + Au ~0.05-0.1 µm; fine pitch, BGA"],
+  ["ENEPIG", "yes", "adds Pd; Au wire bonding"],
+  ["OSP", "yes", "organic, short shelf life, few reflows"],
+  ["Imm. Ag / Sn", "yes", "flat; tarnish / whisker care"],
+]

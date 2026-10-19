@@ -1,0 +1,452 @@
+# Formula registry. `eq` uses KiCad text markup (_{sub} ^{sup} ~{overbar}) and is
+# printed verbatim on the cards. Every entry defines variables, units and assumptions.
+# status: STANDARD (textbook identity / definition), MODEL (approximation with stated
+# validity), RULE (rule of thumb - guidance only). `test` names the unit test that
+# checks the implementation in scripts/deck/eng.py, where one exists.
+
+[ohm]
+eq = "V = I·R"
+vars = "V voltage [V], I current [A], R resistance [Ω]"
+assumptions = "linear resistor"
+source = "definition"
+status = "STANDARD"
+
+[power]
+eq = "P = V·I = I^{2}R = V^{2}/R"
+vars = "P power [W], V [V], I [A], R [Ω]"
+assumptions = "DC or RMS quantities; resistive load for the last two forms"
+source = "Joule's law"
+status = "STANDARD"
+
+[cap_energy]
+eq = "E = C·V^{2}/2"
+vars = "E energy [J], C capacitance [F], V voltage [V]"
+assumptions = "ideal, voltage-independent C (class II MLCC capacitance drops with DC bias)"
+source = "definition"
+status = "STANDARD"
+
+[ind_energy]
+eq = "E = L·I^{2}/2"
+vars = "E energy [J], L inductance [H], I current [A]"
+assumptions = "linear, non-saturated inductor"
+source = "definition"
+status = "STANDARD"
+
+[rc_tau]
+eq = "τ = R·C"
+vars = "τ time constant [s], R [Ω], C [F]"
+assumptions = "first-order RC; 63.2 % of step after τ, 99.3 % after 5τ"
+source = "first-order step response"
+status = "STANDARD"
+
+[rc_fc]
+eq = "f_{c} = 1/(2π·R·C)"
+vars = "f_{c} -3 dB frequency [Hz], R [Ω], C [F]"
+assumptions = "first-order RC, ideal source/load"
+source = "first-order transfer function"
+status = "STANDARD"
+test = "test_eng.Physics.test_rc_lc"
+
+[lc_f0]
+eq = "f_{0} = 1/(2π·√(L·C))"
+vars = "f_{0} resonance [Hz], L [H], C [F]"
+assumptions = "lossless LC"
+source = "resonance condition X_{L} = X_{C}"
+status = "STANDARD"
+test = "test_eng.Physics.test_rc_lc"
+
+[xc]
+eq = "X_{C} = 1/(2π·f·C)"
+vars = "X_{C} reactance [Ω], f [Hz], C [F]"
+assumptions = "ideal capacitor (no ESR/ESL)"
+source = "definition"
+status = "STANDARD"
+
+[xl]
+eq = "X_{L} = 2π·f·L"
+vars = "X_{L} reactance [Ω], f [Hz], L [H]"
+assumptions = "ideal inductor"
+source = "definition"
+status = "STANDARD"
+
+[z_complex]
+eq = "Z = R + jX,  |Z| = √(R^{2}+X^{2}),  φ = atan(X/R)"
+vars = "Z impedance [Ω], R resistance, X reactance [Ω], φ phase [rad]"
+assumptions = "sinusoidal steady state"
+source = "phasor analysis"
+status = "STANDARD"
+
+[divider]
+eq = "V_{out} = V_{in}·R2/(R1+R2)"
+vars = "V_{in}, V_{out} [V]; R1 top, R2 bottom [Ω]"
+assumptions = "unloaded output (R_{load} >> R2)"
+source = "Kirchhoff"
+status = "STANDARD"
+
+[current_divider]
+eq = "I_{1} = I·R2/(R1+R2)"
+vars = "I total [A], I_{1} current in R1 [A]"
+assumptions = "two parallel resistors"
+source = "Kirchhoff"
+status = "STANDARD"
+
+[inv_amp]
+eq = "A_{v} = −R_{f}/R_{in}"
+vars = "A_{v} voltage gain [V/V], R_{f} feedback, R_{in} input [Ω]"
+assumptions = "ideal op-amp (infinite open-loop gain); real parts need GBW, stability, offset checks"
+source = "virtual-ground analysis"
+status = "STANDARD"
+
+[noninv_amp]
+eq = "A_{v} = 1 + R_{f}/R_{g}"
+vars = "A_{v} [V/V], R_{f} feedback, R_{g} to ground [Ω]"
+assumptions = "ideal op-amp"
+source = "virtual-short analysis"
+status = "STANDARD"
+
+[diff_amp]
+eq = "V_{out} = (R2/R1)·(V_{2} − V_{1})"
+vars = "R1 input, R2 feedback/ground [Ω]"
+assumptions = "matched ratios R2/R1 = R4/R3; CMRR limited by resistor matching"
+source = "superposition"
+status = "STANDARD"
+
+[sum_amp]
+eq = "V_{out} = −R_{f}·(V_{1}/R1 + V_{2}/R2)"
+vars = "V_{1}, V_{2} inputs [V], R1, R2, R_{f} [Ω]"
+assumptions = "ideal op-amp, inverting summer"
+source = "virtual-ground superposition"
+status = "STANDARD"
+
+[ina]
+eq = "G = 1 + 2R/R_{G}"
+vars = "G gain [V/V], R internal first-stage resistor, R_{G} gain resistor [Ω]"
+assumptions = "classic 3-op-amp INA with unity-gain difference stage; check the actual part's G equation"
+source = "3-op-amp instrumentation amplifier analysis"
+status = "STANDARD"
+
+[integrator]
+eq = "V_{out} = −(1/RC)·∫V_{in}dt"
+vars = "R input [Ω], C feedback [F]"
+assumptions = "ideal op-amp; needs DC path (R across C) in practice"
+source = "virtual-ground analysis"
+status = "STANDARD"
+
+[differentiator]
+eq = "V_{out} = −RC·dV_{in}/dt"
+vars = "R feedback [Ω], C input [F]"
+assumptions = "ideal; practical circuits add series R / parallel C to limit HF gain"
+source = "virtual-ground analysis"
+status = "STANDARD"
+
+[tia]
+eq = "V_{out} = −I_{in}·R_{f}"
+vars = "I_{in} input current [A], R_{f} [Ω]"
+assumptions = "ideal; C_{f} required for stability with real input capacitance"
+source = "virtual-ground analysis"
+status = "STANDARD"
+
+[tia_cf]
+eq = "C_{f} ≈ √(C_{in}/(2π·R_{f}·GBW))"
+vars = "C_{in} total input capacitance [F], GBW [Hz]"
+assumptions = "single-pole op-amp; gives ~45° phase margin (Butterworth-like); verify by simulation"
+source = "J. Graeme, Photodiode Amplifiers (1996); common TI/ADI application notes"
+status = "MODEL"
+
+[db_v]
+eq = "G_{dB} = 20·log_{10}(V_{2}/V_{1})"
+vars = "voltage ratio"
+assumptions = "same impedance for power interpretation"
+source = "definition"
+status = "STANDARD"
+test = "test_eng.Conversions.test_temperature_db"
+
+[db_p]
+eq = "G_{dB} = 10·log_{10}(P_{2}/P_{1})"
+vars = "power ratio"
+assumptions = ""
+source = "definition"
+status = "STANDARD"
+
+[noise_r]
+eq = "e_{n} = √(4·k·T·R)"
+vars = "e_{n} [V/√Hz], k 1.380649e-23 J/K, T [K], R [Ω]"
+assumptions = "thermal (Johnson) noise only"
+source = "Nyquist 1928"
+status = "STANDARD"
+test = "test_eng.Physics.test_thermal_noise_1k"
+
+[noise_int]
+eq = "V_{n,rms} = e_{n}·√(ENBW),  ENBW = (π/2)·f_{c}"
+vars = "ENBW equivalent noise bandwidth [Hz]"
+assumptions = "white noise; ENBW factor π/2 for a single-pole low-pass"
+source = "noise-bandwidth definition"
+status = "STANDARD"
+
+[slew_fpbw]
+eq = "f_{max} = SR/(2π·V_{p})"
+vars = "SR slew rate [V/s], V_{p} peak output [V]"
+assumptions = "full-power sine without slew distortion"
+source = "dV/dt of a sine"
+status = "STANDARD"
+
+[rtd]
+eq = "R(T) = R_{0}(1 + A·T + B·T^{2})"
+vars = "R_{0} 100/1000 Ω at 0 °C, A 3.9083e-3, B -5.775e-7, T [°C]"
+assumptions = "0..850 °C (IEC 60751; below 0 °C an extra C term applies)"
+source = "IEC 60751 Callendar-Van Dusen coefficients"
+status = "STANDARD"
+
+[ntc]
+eq = "R(T) = R_{25}·e^{B(1/T − 1/T_{25})}"
+vars = "B constant [K], T absolute [K], T_{25} = 298.15 K"
+assumptions = "Beta model, ~±1 °C over a limited range; use Steinhart-Hart for precision"
+source = "thermistor Beta equation"
+status = "MODEL"
+
+[buck_d]
+eq = "D = V_{out}/V_{in}"
+vars = "D duty cycle"
+assumptions = "ideal buck, continuous conduction mode (CCM)"
+source = "volt-second balance"
+status = "STANDARD"
+
+[buck_ripple]
+eq = "ΔI_{L} = (V_{in} − V_{out})·D/(f_{sw}·L)"
+vars = "ΔI_{L} peak-peak inductor ripple [A], f_{sw} [Hz], L [H]"
+assumptions = "ideal buck, CCM"
+source = "inductor V = L·di/dt"
+status = "STANDARD"
+
+[boost_d]
+eq = "D = 1 − V_{in}/V_{out}"
+vars = "D duty cycle"
+assumptions = "ideal boost, CCM"
+source = "volt-second balance"
+status = "STANDARD"
+
+[buckboost_d]
+eq = "V_{out} = −V_{in}·D/(1 − D)"
+vars = "inverting buck-boost output"
+assumptions = "ideal, CCM"
+source = "volt-second balance"
+status = "STANDARD"
+
+[ldo_pd]
+eq = "P_{D} = (V_{in} − V_{out})·I_{out} + V_{in}·I_{Q}"
+vars = "I_{Q} quiescent/ground current [A]"
+assumptions = "linear regulator"
+source = "power balance"
+status = "STANDARD"
+
+[efficiency]
+eq = "η = P_{out}/P_{in}"
+vars = "η efficiency (0..1)"
+assumptions = ""
+source = "definition"
+status = "STANDARD"
+
+[mos_cond]
+eq = "P_{cond} = I_{rms}^{2}·R_{DS(on)}"
+vars = "R_{DS(on)} at actual T_{j} and V_{GS} (rises ~1.5-2x hot)"
+assumptions = "MOSFET fully enhanced"
+source = "Joule loss"
+status = "STANDARD"
+
+[mos_sw]
+eq = "P_{sw} ≈ V·I·(t_{r} + t_{f})·f_{sw}/2"
+vars = "t_{r}, t_{f} switching transition times [s]"
+assumptions = "hard switching, linear V/I overlap; ignores Q_{rr}, C_{oss} losses"
+source = "first-order switching-loss model"
+status = "MODEL"
+
+[tj]
+eq = "T_{j} = T_{a} + P·θ_{JA}"
+vars = "θ_{JA} junction-ambient [K/W] (board dependent!)"
+assumptions = "steady state; θ_{JA} from a JEDEC test board rarely matches your board"
+source = "thermal Ohm's law"
+status = "MODEL"
+
+[ipc2221]
+eq = "I = k·ΔT^{0.44}·A^{0.725}"
+vars = "I [A], ΔT rise [°C], A cross-section [mil²], k 0.048 ext / 0.024 int"
+assumptions = "legacy IPC-2221 chart fit; IPC-2152 supersedes; depends on board, planes, airflow"
+source = "IPC-2221 design chart curve fit (widely published)"
+status = "MODEL"
+test = "test_eng.Physics.test_copper"
+
+[via_r]
+eq = "R_{via} = ρ·t_{b}/(π·(d + t_{p})·t_{p})"
+vars = "t_{b} board thickness, d finished hole, t_{p} plating [m]"
+assumptions = "thin cylindrical barrel; ignores pads/spreading"
+source = "resistance of a tube"
+status = "MODEL"
+
+[cu_r]
+eq = "R = ρ·L/(W·t) = R_{□}·L/W"
+vars = "ρ 1.72e-8 Ωm (20 °C), R_{□} sheet resistance [Ω/sq]"
+assumptions = "uniform DC current; +0.39 %/K"
+source = "definition"
+status = "STANDARD"
+test = "test_eng.Physics.test_copper"
+
+[z0_lc]
+eq = "Z_{0} = √(L'/C')"
+vars = "L', C' per-unit-length inductance [H/m] and capacitance [F/m]"
+assumptions = "lossless line"
+source = "telegrapher's equations"
+status = "STANDARD"
+
+[gamma]
+eq = "Γ = (Z_{L} − Z_{0})/(Z_{L} + Z_{0})"
+vars = "Γ reflection coefficient, Z_{L} load, Z_{0} line [Ω]"
+assumptions = ""
+source = "definition"
+status = "STANDARD"
+test = "test_eng.RF.test_gamma_vswr"
+
+[return_loss]
+eq = "RL = −20·log_{10}|Γ|"
+vars = "RL [dB] (positive number); S11 [dB] = −RL"
+assumptions = ""
+source = "definition"
+status = "STANDARD"
+test = "test_eng.RF.test_gamma_vswr"
+
+[vswr]
+eq = "VSWR = (1 + |Γ|)/(1 − |Γ|)"
+vars = "voltage standing wave ratio"
+assumptions = ""
+source = "definition"
+status = "STANDARD"
+test = "test_eng.RF.test_gamma_vswr"
+
+[lambda]
+eq = "λ = c/(f·√ε_{eff})"
+vars = "c 299 792 458 m/s, f [Hz], ε_{eff} effective permittivity"
+assumptions = "ε_{eff} = 1 for free space"
+source = "definition"
+status = "STANDARD"
+test = "test_eng.RF.test_wavelength"
+
+[tpd]
+eq = "t_{d} = L·√ε_{eff}/c"
+vars = "L line length [m]"
+assumptions = "TEM / quasi-TEM line"
+source = "definition"
+status = "STANDARD"
+
+[dipole]
+eq = "L_{m} ≈ 143/f_{MHz}"
+vars = "L_{m} total half-wave dipole length [m]"
+assumptions = "thin wire in free space, ≈0.95·λ/2 end-effect shortening; first estimate only"
+source = "classic amateur-radio approximation (ARRL)"
+status = "RULE"
+
+[monopole]
+eq = "L_{m} ≈ 71.5/f_{MHz}  (λ/4 = 75/f_{MHz})"
+vars = "L_{m} quarter-wave monopole [m]"
+assumptions = "over a large ground plane; 75/f is the free-space λ/4, 71.5/f includes ≈0.95 shortening"
+source = "half of the dipole approximation"
+status = "RULE"
+
+[microstrip]
+eq = "Z_{0}(W,h,ε_{r},t)  Hammerstad-Jensen"
+vars = "W width, h dielectric height, t copper thickness [mm], ε_{r}"
+assumptions = "quasi-static, ~1 % for 0.1 < W/h < 10; ignores solder mask (lowers Z_{0} a few Ω)"
+source = "E. Hammerstad, O. Jensen, IEEE MTT-S 1980"
+status = "MODEL"
+test = "test_eng.RF.test_microstrip_reference"
+
+[stripline]
+eq = "Z_{0} = (η_{0}/(4√ε_{r}))·K(k)/K(k'),  k = sech(πW/2b)"
+vars = "b ground-to-ground spacing, W width [mm]"
+assumptions = "centred, zero-thickness strip (Cohn 1954)"
+source = "S. Cohn, IRE Trans. MTT 1954; Pozar, Microwave Engineering"
+status = "MODEL"
+test = "test_eng.RF.test_stripline_reference"
+
+[cpwg]
+eq = "Z_{0} = 60π/√ε_{eff} · 1/(K(k1)/K(k1') + K(k3)/K(k3'))"
+vars = "k1 = W/(W+2G), k3 = tanh(πW/4h)/tanh(π(W+2G)/4h)"
+assumptions = "zero thickness, infinitely wide top grounds, via-stitched"
+source = "B. Wadell, Transmission Line Design Handbook (1991)"
+status = "MODEL"
+test = "test_eng.RF.test_cpwg_monotonic"
+
+[diff_ms]
+eq = "Z_{diff} ≈ 2Z_{0}·(1 − 0.48·e^{−0.96·S/h})"
+vars = "S edge gap, h dielectric height"
+assumptions = "edge-coupled microstrip, rough (±10 %) - use a field solver for production"
+source = "IPC-2141 approximation"
+status = "MODEL"
+
+[knee]
+eq = "f_{knee} ≈ 0.35/t_{r}"
+vars = "t_{r} 10-90 % rise time [s]"
+assumptions = "single-pole edge; 0.5/t_{r} is also quoted"
+source = "Johnson & Graham, High-Speed Digital Design"
+status = "RULE"
+
+[patch]
+eq = "W = c/(2f)·√(2/(ε_{r}+1)),  L = c/(2f√ε_{eff}) − 2ΔL"
+vars = "ΔL fringing extension (Hammerstad)"
+assumptions = "rectangular patch, transmission-line model; detuned by enclosure, feed, tolerance"
+source = "C. Balanis, Antenna Theory, ch. 14"
+status = "MODEL"
+
+[lmatch_q]
+eq = "Q = √(R_{H}/R_{L} − 1)"
+vars = "R_{H}, R_{L} higher / lower resistance [Ω]"
+assumptions = "lossless L network, single frequency"
+source = "L-network design"
+status = "STANDARD"
+
+[wilkinson]
+eq = "λ/4 arms Z = √2·Z_{0},  R = 2Z_{0}"
+vars = "equal split, Z_{0} port impedance"
+assumptions = "narrow-band (λ/4 sections)"
+source = "Pozar, Microwave Engineering"
+status = "STANDARD"
+
+[i2c_rp]
+eq = "R_{p,min} = (V_{DD} − V_{OL,max})/I_{OL},  R_{p,max} = t_{r}/(0.8473·C_{b})"
+vars = "t_{r} max rise time, C_{b} bus capacitance"
+assumptions = "standard/fast/fast+ mode limits from the I2C specification"
+source = "NXP UM10204 I2C-bus specification, section 7.1"
+status = "STANDARD"
+
+[xtal_cl]
+eq = "C1 = C2 ≈ 2·(C_{L} − C_{stray})"
+vars = "C_{L} crystal load capacitance, C_{stray} ~2-5 pF"
+assumptions = "Pierce oscillator, C_{L} = C1·C2/(C1+C2) + C_{stray}"
+source = "series combination of load capacitors"
+status = "STANDARD"
+
+[adc_lsb]
+eq = "LSB = V_{ref}/2^{N}"
+vars = "N resolution [bits]"
+assumptions = "ideal ADC, unipolar full scale"
+source = "definition"
+status = "STANDARD"
+
+[adc_snr]
+eq = "SNR_{ideal} = 6.02·N + 1.76 dB"
+vars = "N bits"
+assumptions = "full-scale sine, quantisation noise only"
+source = "quantisation noise LSB/√12"
+status = "STANDARD"
+
+[nyquist]
+eq = "f_{s} > 2·f_{max}"
+vars = "f_{s} sample rate, f_{max} highest signal content"
+assumptions = "practical anti-alias filters need margin (f_{s} ≈ 2.5-10× f_{max})"
+source = "Nyquist-Shannon sampling theorem"
+status = "STANDARD"
+
+[shunt]
+eq = "V_{sense} = I·R_{s},  P_{Rs} = I^{2}·R_{s}"
+vars = "R_{s} shunt resistance [Ω]"
+assumptions = "Kelvin connection removes trace resistance"
+source = "Ohm's law"
+status = "STANDARD"

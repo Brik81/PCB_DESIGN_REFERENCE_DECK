@@ -1,0 +1,189 @@
+{
+ "drills_mm": [
+  0.2,
+  0.25,
+  0.3,
+  0.4,
+  0.5,
+  0.6,
+  0.8,
+  1.0,
+  1.2,
+  1.5,
+  2.0,
+  2.5,
+  3.0,
+  3.2
+ ],
+ "packages": [
+  "MountingHole:MountingHole_2.2mm_M2_Pad",
+  "MountingHole:MountingHole_2.7mm_M2.5_Pad",
+  "MountingHole:MountingHole_3.2mm_M3_Pad",
+  "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+  "Connector_PinHeader_2.00mm:PinHeader_1x04_P2.00mm_Vertical",
+  "Connector_PinHeader_1.27mm:PinHeader_1x04_P1.27mm_Vertical",
+  "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical",
+  "Fiducial:Fiducial_0.75mm_Mask1.5mm",
+  "Fiducial:Fiducial_1mm_Mask2mm",
+  "Fiducial:Fiducial_1.5mm_Mask3mm",
+  "TestPoint:TestPoint_Pad_D1.0mm",
+  "TestPoint:TestPoint_Pad_D1.5mm",
+  "TestPoint:TestPoint_Pad_D2.0mm"
+ ],
+ "reserved_panels": {
+  "F": [
+   "ring hole",
+   "header",
+   "gauge",
+   "mount",
+   "pads",
+   "headers",
+   "fiducials",
+   "testpads",
+   "notes"
+  ],
+  "B": [
+   "ring hole",
+   "header",
+   "footer",
+   "gauge (through)",
+   "mount (through)",
+   "pads (through)",
+   "headers (through)",
+   "screws",
+   "drill notes"
+  ]
+ },
+ "reserved_rects": {
+  "F": [
+   [
+    "ring hole",
+    1.6,
+    1.6,
+    11.5,
+    11.5
+   ],
+   [
+    "header",
+    12.2,
+    1.6,
+    84.0,
+    11.0
+   ],
+   [
+    "gauge",
+    1.6,
+    11.8,
+    84.0,
+    20.4
+   ],
+   [
+    "mount",
+    1.6,
+    20.9,
+    28.200000000000003,
+    34.5
+   ],
+   [
+    "pads",
+    29.2,
+    20.9,
+    50.0,
+    34.5
+   ],
+   [
+    "headers",
+    1.6,
+    35.0,
+    50.0,
+    49.4
+   ],
+   [
+    "fiducials",
+    51.4,
+    20.9,
+    84.0,
+    30.7
+   ],
+   [
+    "testpads",
+    51.4,
+    31.2,
+    84.0,
+    41.0
+   ],
+   [
+    "notes",
+    51.4,
+    41.5,
+    84.0,
+    52.38
+   ]
+  ],
+  "B": [
+   [
+    "ring hole",
+    1.5999999999999943,
+    1.6,
+    11.5,
+    11.5
+   ],
+   [
+    "header",
+    12.199999999999989,
+    1.6,
+    84.0,
+    11.0
+   ],
+   [
+    "footer",
+    1.5999999999999943,
+    50.92999999999999,
+    84.0,
+    52.379999999999995
+   ],
+   [
+    "gauge (through)",
+    1.5999999999999943,
+    11.8,
+    84.0,
+    20.4
+   ],
+   [
+    "mount (through)",
+    1.5999999999999943,
+    20.9,
+    28.199999999999996,
+    34.5
+   ],
+   [
+    "pads (through)",
+    29.200000000000003,
+    20.9,
+    50.0,
+    34.5
+   ],
+   [
+    "headers (through)",
+    1.5999999999999943,
+    35.0,
+    49.99999999999999,
+    49.4
+   ],
+   [
+    "screws",
+    51.39999999999999,
+    20.9,
+    84.0,
+    34.5
+   ],
+   [
+    "drill notes",
+    51.39999999999999,
+    35.0,
+    84.0,
+    49.4
+   ]
+  ]
+ }
+}

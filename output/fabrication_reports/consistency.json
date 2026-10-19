@@ -1,0 +1,5 @@
+{
+ "check": "mechanical consistency across cards",
+ "status": "PASS",
+ "detail": "15 boards, 1 distinct outline/hole signature(s)"
+}

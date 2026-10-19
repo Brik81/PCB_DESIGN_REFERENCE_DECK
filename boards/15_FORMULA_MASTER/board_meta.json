@@ -1,0 +1,131 @@
+{
+ "formula_keys": [
+  "ohm",
+  "power",
+  "divider",
+  "rc_tau",
+  "rc_fc",
+  "lc_f0",
+  "xc",
+  "xl",
+  "cap_energy",
+  "ind_energy",
+  "db_v",
+  "db_p",
+  "lambda",
+  "tpd",
+  "gamma",
+  "vswr",
+  "z0_lc",
+  "knee",
+  "xtal_cl",
+  "nyquist",
+  "shunt",
+  "current_divider",
+  "inv_amp",
+  "noninv_amp",
+  "noise_r",
+  "adc_lsb",
+  "adc_snr",
+  "ldo_pd",
+  "buck_d",
+  "boost_d",
+  "efficiency",
+  "tj",
+  "cu_r",
+  "return_loss",
+  "lmatch_q"
+ ],
+ "reserved_panels": {
+  "F": [
+   "ring hole",
+   "header",
+   "prefixes",
+   "constants",
+   "conversions",
+   "eseries"
+  ],
+  "B": [
+   "ring hole",
+   "header",
+   "footer",
+   "core"
+  ]
+ },
+ "reserved_rects": {
+  "F": [
+   [
+    "ring hole",
+    1.6,
+    1.6,
+    11.5,
+    11.5
+   ],
+   [
+    "header",
+    12.2,
+    1.6,
+    84.0,
+    11.0
+   ],
+   [
+    "prefixes",
+    1.6,
+    11.8,
+    21.6,
+    29.400000000000002
+   ],
+   [
+    "constants",
+    23.0,
+    11.8,
+    55.6,
+    29.400000000000002
+   ],
+   [
+    "conversions",
+    57.0,
+    11.8,
+    84.0,
+    29.400000000000002
+   ],
+   [
+    "eseries",
+    1.6,
+    31.0,
+    84.0,
+    52.379999999999995
+   ]
+  ],
+  "B": [
+   [
+    "ring hole",
+    1.5999999999999943,
+    1.6,
+    11.5,
+    11.5
+   ],
+   [
+    "header",
+    12.199999999999989,
+    1.6,
+    84.0,
+    11.0
+   ],
+   [
+    "footer",
+    1.5999999999999943,
+    50.92999999999999,
+    84.0,
+    52.379999999999995
+   ],
+   [
+    "core",
+    1.5999999999999943,
+    11.8,
+    84.0,
+    49.400000000000006
+   ]
+  ]
+ }
+}

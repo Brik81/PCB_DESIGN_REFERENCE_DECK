@@ -1,0 +1,81 @@
+[project]
+name = "PCB_DESIGN_REFERENCE_DECK"
+kicad_version = "10.0"
+footprint_library = "C:/Program Files/KiCad/10.0/share/kicad/footprints"  # overridable with env KICAD10_FOOTPRINT_DIR
+
+# One entry per physical card. `module` = scripts/deck/cards/<module>.py
+[[board]]
+id = 1
+dir = "01_PCB_LAYOUT_MASTER"
+title = "PCB LAYOUT MASTER"
+module = "c01_layout"
+[[board]]
+id = 2
+dir = "02_SMD_FOOTPRINT_MASTER"
+title = "SMD FOOTPRINT MASTER"
+module = "c02_smd"
+[[board]]
+id = 3
+dir = "03_QFP_BGA_FINE_PITCH"
+title = "QFP / BGA / FINE PITCH"
+module = "c03_finepitch"
+[[board]]
+id = 4
+dir = "04_DRILL_MECHANICAL"
+title = "DRILL / VIA / MECHANICAL"
+module = "c04_drill"
+[[board]]
+id = 5
+dir = "05_SOLDERING_ASSEMBLY"
+title = "SOLDERING & ASSEMBLY"
+module = "c05_assembly"
+[[board]]
+id = 6
+dir = "06_ANALOG_DESIGN"
+title = "ANALOG DESIGN"
+module = "c06_analog"
+[[board]]
+id = 7
+dir = "07_POWER_THERMAL"
+title = "POWER & THERMAL"
+module = "c07_power"
+[[board]]
+id = 8
+dir = "08_IMPEDANCE_HIGH_SPEED"
+title = "IMPEDANCE & HIGH SPEED"
+module = "c08_highspeed"
+[[board]]
+id = 9
+dir = "09_RF_ANTENNAS"
+title = "RF & ANTENNAS"
+module = "c09_rf"
+[[board]]
+id = 10
+dir = "10_DIGITAL_LOGIC"
+title = "DIGITAL LOGIC"
+module = "c10_digital"
+[[board]]
+id = 11
+dir = "11_COMMUNICATION_INTERFACES"
+title = "COMMUNICATION INTERFACES"
+module = "c11_interfaces"
+[[board]]
+id = 12
+dir = "12_COMPONENT_IDENTIFICATION"
+title = "COMPONENT IDENTIFICATION"
+module = "c12_components"
+[[board]]
+id = 13
+dir = "13_TEST_DEBUG"
+title = "TEST & DEBUG"
+module = "c13_debug"
+[[board]]
+id = 14
+dir = "14_PCB_MANUFACTURING"
+title = "PCB MANUFACTURING & STACK-UP"
+module = "c14_manufacturing"
+[[board]]
+id = 15
+dir = "15_FORMULA_MASTER"
+title = "FORMULA MASTER"
+module = "c15_formulas"

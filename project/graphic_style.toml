@@ -1,0 +1,34 @@
+# Typographic hierarchy. size = glyph height (mm), thick = stroke width (mm).
+# KiCad stroke font advance is ~0.95 x size per character (measured, KiCad 10.0.7).
+
+[text.number]     # card number, exposed gold copper
+size = 3.2
+thick = 0.45
+[text.title]
+size = 2.0
+thick = 0.30
+[text.section]
+size = 1.25
+thick = 0.20
+[text.body]
+size = 1.0
+thick = 0.15
+[text.small]      # never below fab minimum (see design_rules.toml)
+size = 1.0
+thick = 0.15
+
+[spacing]
+line_pitch = 1.6     # baseline-to-baseline for body text
+section_gap = 1.0
+
+[colors]
+# Requested look. Orange silkscreen is NOT a standard fab option; the accent
+# colour is realised as exposed ENIG copper (gold) instead.
+solder_mask = "Black"
+silkscreen = "White"
+surface_finish = "ENIG"
+accent = "exposed ENIG copper"
+
+[revision]
+label = "REV A"
+year = "2026"

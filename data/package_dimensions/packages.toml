@@ -1,0 +1,266 @@
+# Curated package registry. Land patterns are ALWAYS the referenced KiCad 10
+# library footprint (used verbatim on the cards). Nominal body values below are
+# what is printed on the cards.
+#
+# body = [length along pin rows / long side D, width E1] in mm (nominal)
+# span = lead tip-to-tip E (mm, nominal) where applicable
+# status:
+#   VERIFIED       primary manufacturer / standard document read during development
+#   CROSS-CHECKED  nominal value from the cited standard family; automatically
+#                  compared with the KiCad library F.Fab body (tests/test_data.py)
+#   UNVERIFIED     not yet checked: must not be relied on
+# A family name never implies a universal size: the variant is given explicitly.
+
+[chip]   # [EIA code, metric code, KiCad footprint, P70 (W), body L, body W]
+note = "Nominal body L x W (mm) per common EIA/IEC chip sizes; the metric code is a ROUNDED name (2012 = 2.0 x 1.25). Real parts vary by vendor (typ. +/-0.05..0.2 mm). Land pattern: KiCad R_* footprint, IPC-7351 nominal density."
+body_status = "CROSS-CHECKED"   # automatically compared with KiCad F.Fab bodies (tests/test_data.py)
+codes = [
+  ["01005", "0402", "Resistor_SMD:R_01005_0402Metric", "1/32", 0.4, 0.2],
+  ["0201", "0603", "Resistor_SMD:R_0201_0603Metric", "1/20", 0.6, 0.3],
+  ["0402", "1005", "Resistor_SMD:R_0402_1005Metric", "1/16", 1.0, 0.5],
+  ["0603", "1608", "Resistor_SMD:R_0603_1608Metric", "1/10", 1.6, 0.8],
+  ["0805", "2012", "Resistor_SMD:R_0805_2012Metric", "1/8", 2.0, 1.25],
+  ["1206", "3216", "Resistor_SMD:R_1206_3216Metric", "1/4", 3.2, 1.6],
+  ["1210", "3225", "Resistor_SMD:R_1210_3225Metric", "1/2", 3.2, 2.5],
+  ["1812", "4532", "Resistor_SMD:R_1812_4532Metric", "-", 4.5, 3.2],
+  ["2010", "5025", "Resistor_SMD:R_2010_5025Metric", "3/4", 5.0, 2.5],
+  ["2512", "6332", "Resistor_SMD:R_2512_6332Metric", "1", 6.3, 3.2],
+]
+power_source = "Yageo RC_L thick-film datasheet V.5 (Feb 2017), rated power at 70 degC; read via alldatasheet mirror (yageo.com PDF 404 on 2026-10-19). 01005 = RC0100. Yageo has no 1812 (uses 1218)."
+power_status = "UNVERIFIED"   # secondary copy only; re-check against current Yageo PDF
+
+[[pkg]]
+key = "SOT-23"
+footprint = "Package_TO_SOT_SMD:SOT-23"
+variant = "JEDEC TO-236 var. AB, 3 leads"
+body = [2.9, 1.3]
+span = 2.4
+pitch = "0.95 / 1.90"
+pins = 3
+source = "JEDEC TO-236 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "SOT-323"
+footprint = "Package_TO_SOT_SMD:SOT-323_SC-70"
+variant = "SC-70-3, JEITA ED-7500A"
+body = [2.0, 1.25]
+span = 2.1
+pitch = "0.65 / 1.30"
+pins = 3
+source = "JEITA ED-7500A p.148 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "SOT-363"
+footprint = "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+variant = "SC-70-6, JEDEC MO-203"
+body = [2.0, 1.25]
+span = 2.1
+pitch = "0.65"
+pins = 6
+source = "JEITA ED-7500A p.170 / JEDEC MO-203 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "SOT-89"
+footprint = "Package_TO_SOT_SMD:SOT-89-3"
+variant = "3 leads + tab (pin 2)"
+body = [4.5, 2.5]
+pitch = "1.50"
+pins = 3
+source = "Microchip 3L SOT-89 MB C04-029C (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "SOT-223"
+footprint = "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+variant = "JEDEC TO-261AA, 3 leads + tab (pin 2)"
+body = [6.5, 3.5]
+span = 7.0
+pitch = "2.30"
+pins = 3
+source = "JEDEC TO-261AA nominal; KiCad footprint descr cites no drawing (F.Fab drawn at max 6.7 x 3.7)"
+status = "UNVERIFIED"
+
+[[pkg]]
+key = "SOIC-8"
+footprint = "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+variant = "JEDEC MS-012AA, 3.9 mm body"
+body = [4.9, 3.9]
+span = 6.0
+pitch = "1.27"
+pins = 8
+source = "JEDEC MS-012AA (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "SOIC-14"
+footprint = "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+variant = "JEDEC MS-012AB, 3.9 mm body"
+body = [8.65, 3.9]
+span = 6.0
+pitch = "1.27"
+pins = 14
+source = "JEDEC MS-012AB (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "SSOP-16"
+footprint = "Package_SO:SSOP-16_3.9x4.9mm_P0.635mm"
+variant = "QSOP-16 style, 0.635 mm pitch (NXP SOT519-1)"
+body = [4.9, 3.9]
+span = 6.0
+pitch = "0.635"
+pins = 16
+source = "NXP SOT519-1 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "MSOP-8"
+footprint = "Package_SO:MSOP-8_3x3mm_P0.65mm"
+variant = "JEDEC MO-187F var. AA"
+body = [3.0, 3.0]
+span = 4.9
+pitch = "0.65"
+pins = 8
+source = "JEDEC MO-187F (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "TSSOP-14"
+footprint = "Package_SO:TSSOP-14_4.4x5mm_P0.65mm"
+variant = "JEDEC MO-153 AB-1"
+body = [5.0, 4.4]
+span = 6.4
+pitch = "0.65"
+pins = 14
+source = "JEDEC MO-153 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "TSSOP-16"
+footprint = "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
+variant = "JEDEC MO-153 AB"
+body = [5.0, 4.4]
+span = 6.4
+pitch = "0.65"
+pins = 16
+source = "JEDEC MO-153 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "TSSOP-20"
+footprint = "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm"
+variant = "JEDEC MO-153 AC"
+body = [6.5, 4.4]
+span = 6.4
+pitch = "0.65"
+pins = 20
+source = "JEDEC MO-153 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "TSSOP-24"
+footprint = "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm"
+variant = "JEDEC MO-153 AD"
+body = [7.8, 4.4]
+span = 6.4
+pitch = "0.65"
+pins = 24
+source = "JEDEC MO-153 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "DFN-8"
+footprint = "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm_EP1.66x2.38mm"
+variant = "3x3 mm, 0.5 mm pitch, EP 1.66x2.38 (LT DD package)"
+body = [3.0, 3.0]
+pitch = "0.50"
+pins = 8
+source = "Linear Technology DFN_8_05-08-1698 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "QFN-16"
+footprint = "Package_DFN_QFN:QFN-16-1EP_3x3mm_P0.5mm_EP1.75x1.75mm"
+variant = "3x3 mm, 0.5 mm pitch, EP 1.75 (onsemi NCN4555)"
+body = [3.0, 3.0]
+pitch = "0.50"
+pins = 16
+source = "onsemi NCN4555-D (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "PowerPAK SO-8"
+footprint = "Package_SO:PowerPAK_SO-8_Single"
+variant = "Vishay PowerPAK SO-8 single"
+body = [5.15, 6.15]
+pitch = "1.27"
+pins = 8
+kicad_fab = [5.89, 4.90]   # KiCad F.Fab draws E1 x D1 (body without leads)
+source = "Vishay doc 71655, rev 13-Feb-17: D 5.15, E 6.15, E1 5.89, D1 4.90, e 1.27 BSC"
+status = "VERIFIED"
+
+# ---- card 03: fine pitch -------------------------------------------------
+[[pkg]]
+key = "LQFP-48"
+footprint = "Package_QFP:LQFP-48_7x7mm_P0.5mm"
+variant = "JEDEC MS-026 BBC, 7x7 mm, 1.40 mm thick"
+body = [7.0, 7.0]
+span = 9.0
+pitch = "0.50"
+pins = 48
+source = "JEDEC MS-026 BBC (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "LQFP-32"
+footprint = "Package_QFP:LQFP-32_7x7mm_P0.8mm"
+variant = "7x7 mm, 0.8 mm pitch (NXP SOT358-1); TQFP-32 = same outline, 1.0 mm thick"
+body = [7.0, 7.0]
+span = 9.0
+pitch = "0.80"
+pins = 32
+source = "NXP SOT358-1 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "QFN-32"
+footprint = "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm"
+variant = "5x5 mm, 0.5 mm pitch, EP 3.45 (LTC 05-08-1693)"
+body = [5.0, 5.0]
+pitch = "0.50"
+pins = 32
+source = "Analog Devices/LTC QFN_32_05-08-1693 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "BGA-49 0.8"
+footprint = "Package_BGA:Analog_BGA-49_6.25x6.25mm_Layout7x7_P0.8mm"
+variant = "ADI/LTC BGA-49, 6.25x6.25 mm, 7x7, 0.8 mm pitch"
+body = [6.25, 6.25]
+pitch = "0.80"
+pins = 49
+source = "Analog Devices 05081600 bga49 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "BGA-68 0.5"
+footprint = "Package_BGA:BGA-68_5.0x5.0mm_Layout9x9_P0.5mm_Ball0.3mm_Pad0.25mm_NSMD"
+variant = "Altera MBGA-68, 5x5 mm, 9x9, 0.5 mm pitch, ball 0.3, NSMD pad 0.25"
+body = [5.0, 5.0]
+pitch = "0.50"
+pins = 68
+source = "Altera 04r00344-01 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"
+
+[[pkg]]
+key = "WLCSP-49 0.4"
+footprint = "Package_CSP:NXP_SOT1444-5_WLCSP-49_3.44x3.44mm_Layout7x7_P0.4mm"
+variant = "NXP SOT1444-5, 3.44x3.44 mm, 7x7, 0.4 mm pitch, 0.24 pad"
+body = [3.44, 3.44]
+pitch = "0.40"
+pins = 49
+source = "NXP SOT1444-5 (cited by KiCad footprint)"
+status = "CROSS-CHECKED"

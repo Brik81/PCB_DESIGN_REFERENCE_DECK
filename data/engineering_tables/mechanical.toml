@@ -1,0 +1,32 @@
+# Mechanical reference tables printed on card 04.
+# status: VERIFIED | CROSS-CHECKED | SECONDARY (widely tabulated, primary not read) | UNVERIFIED
+
+[iso273]
+title = "Clearance holes for bolts and screws (mm)"
+source = "ISO 273:1979, fine / medium / coarse series (values as widely tabulated)"
+cross_check = "fine series equals KiCad MountingHole_2.2mm_M2 / 2.7mm_M2.5 / 3.2mm_M3 / 4.3mm_M4 footprint names"
+status = "SECONDARY"
+rows = [
+  ["M2", 2.2, 2.4, 2.6],
+  ["M2.5", 2.7, 2.9, 3.1],
+  ["M3", 3.2, 3.4, 3.6],
+  ["M4", 4.3, 4.5, 4.8],
+]
+
+[iso4762_head]
+title = "Socket head cap screw head diameter dk max (mm)"
+source = "ISO 4762 (values as widely tabulated)"
+status = "SECONDARY"
+rows = [["M2", 3.8], ["M2.5", 4.5], ["M3", 5.5], ["M4", 7.0]]
+
+[iso7089_washer]
+title = "Plain washer outer diameter d2 (mm)"
+source = "ISO 7089 (values as widely tabulated)"
+status = "SECONDARY"
+rows = [["M2", 5.0], ["M2.5", 6.0], ["M3", 7.0], ["M4", 9.0]]
+
+[plating]
+title = "Minimum average copper plating in PTH walls"
+source = "IPC-6012 (Class 2: 20 um, Class 3: 25 um) - summary, standard not reproduced"
+status = "SECONDARY"
+rows = [["Class 2", 20], ["Class 3", 25]]

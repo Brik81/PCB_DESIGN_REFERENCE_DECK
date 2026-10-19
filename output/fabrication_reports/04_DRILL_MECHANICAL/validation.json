@@ -1,0 +1,117 @@
+[
+ {
+  "check": "board file exists",
+  "status": "PASS",
+  "detail": "04_DRILL_MECHANICAL.kicad_pcb"
+ },
+ {
+  "check": "project file exists",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "Edge.Cuts closed outline",
+  "status": "PASS",
+  "detail": "8 segments, closed single loop"
+ },
+ {
+  "check": "width",
+  "status": "PASS",
+  "detail": "85.600 mm (spec 85.6)"
+ },
+ {
+  "check": "height",
+  "status": "PASS",
+  "detail": "53.980 mm (spec 53.98)"
+ },
+ {
+  "check": "origin at (0,0)",
+  "status": "PASS",
+  "detail": "(0.000,0.000)"
+ },
+ {
+  "check": "thickness",
+  "status": "PASS",
+  "detail": "1.0 mm"
+ },
+ {
+  "check": "ring hole position",
+  "status": "PASS",
+  "detail": "(6.0, 6.0)"
+ },
+ {
+  "check": "ring hole diameter",
+  "status": "PASS",
+  "detail": "finished 4.0 mm, thru_hole"
+ },
+ {
+  "check": "ring hole reinforcement pad",
+  "status": "PASS",
+  "detail": "plated annulus 1.50 mm"
+ },
+ {
+  "check": "ring hole edge web",
+  "status": "PASS",
+  "detail": "4.00 mm laminate to edge"
+ },
+ {
+  "check": "ring hole keep-out",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "required layers",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "front content",
+  "status": "PASS",
+  "detail": "72 F.SilkS texts"
+ },
+ {
+  "check": "back content",
+  "status": "PASS",
+  "detail": "93 B.SilkS texts"
+ },
+ {
+  "check": "text height/stroke >= fab min",
+  "status": "PASS",
+  "detail": "169 texts, min 1.0/0.15 mm"
+ },
+ {
+  "check": "back text mirrored",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "drill samples present",
+  "status": "PASS",
+  "detail": "14 sizes present"
+ },
+ {
+  "check": "plated holes inside through regions",
+  "status": "PASS",
+  "detail": "38 holes in 6 regions"
+ },
+ {
+  "check": "library land patterns placed",
+  "status": "PASS",
+  "detail": "13 footprints"
+ },
+ {
+  "check": "fabricated measurement accuracy",
+  "status": "FAB",
+  "detail": "nominal geometry verified; etch (+/-~0.02-0.05 mm), drill (+0.13/-0.08) and outline (+/-0.2) tolerances apply - measure a sample card"
+ },
+ {
+  "check": "KiCad DRC",
+  "status": "PASS",
+  "detail": "0 errors, 0 warnings, 0 unconnected (kicad 10.0.7, 2026-10-19T23:27:50)"
+ },
+ {
+  "check": "content technical review",
+  "status": "REVIEW",
+  "detail": "DRC does not prove formulas, pinouts or footprints correct"
+ }
+]

@@ -1,0 +1,57 @@
+{
+  "board": {
+    "design_settings": {
+      "rules": {
+        "min_clearance": 0.1,
+        "min_track_width": 0.1,
+        "min_via_diameter": 0.45,
+        "min_through_hole_diameter": 0.2,
+        "min_via_annular_width": 0.125,
+        "min_hole_to_hole": 0.25,
+        "min_hole_clearance": 0.2,
+        "min_copper_edge_clearance": 0.5,
+        "min_silk_clearance": 0.0,
+        "min_text_height": 1.0,
+        "min_text_thickness": 0.15,
+        "min_microvia_diameter": 0.2,
+        "min_microvia_drill": 0.1,
+        "min_connection": 0.0,
+        "max_error": 0.005,
+        "solder_mask_to_copper_clearance": 0.0,
+        "min_resolved_spokes": 1
+      },
+      "rule_severities": {
+        "lib_footprint_issues": "ignore",
+        "lib_footprint_mismatch": "ignore",
+        "track_dangling": "ignore",
+        "via_dangling": "ignore",
+        "isolated_copper": "ignore",
+        "silk_overlap": "error",
+        "silk_edge_clearance": "error",
+        "text_height": "error",
+        "text_thickness": "error"
+      }
+    }
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "name": "Default",
+        "clearance": 0.1,
+        "track_width": 0.2,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "priority": 2147483647
+      }
+    ],
+    "meta": {
+      "version": 5
+    }
+  },
+  "meta": {
+    "filename": "09_RF_ANTENNAS.kicad_pro",
+    "version": 3
+  }
+}

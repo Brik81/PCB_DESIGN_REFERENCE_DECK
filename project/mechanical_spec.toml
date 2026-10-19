@@ -1,0 +1,27 @@
+# Shared mechanical template for all 15 cards.
+# All values in millimetres. Origin = top-left corner of the card as seen
+# from the FRONT (F.*) side; +X right, +Y down (KiCad convention).
+
+[card]
+width = 85.60          # ISO/IEC 7810 ID-1 nominal width
+height = 53.98         # ISO/IEC 7810 ID-1 nominal height
+corner_radius = 3.18   # ISO/IEC 7810 ID-1 nominal corner radius
+thickness = 1.0        # target; JLCPCB lists 1.0 mm as a standard FR-4 option (tol +/-10 %)
+outline_tolerance = 0.2  # routed-outline tolerance quoted by fab (regular precision)
+
+[ring_hole]
+# Hole for a binder/key ring through all 15 cards.
+x = 6.0
+y = 6.0
+finished_diameter = 4.0    # PTH finished size; fab tolerance +0.13/-0.08 mm
+plated = true              # copper barrel protects the glass weave from ring abrasion
+pad_diameter = 7.0         # 1.5 mm annulus, exposed ENIG, both sides
+keepout_radius = 5.5       # no other copper/text inside this radius (enforced by a rule area)
+# Web of laminate between hole and nearest edge = x - d/2 = 4.0 mm (= 1.0 x hole diameter).
+
+[layout]
+margin = 1.6               # minimum distance from card edge to any text/graphic
+copper_edge_clearance = 0.5  # design value (fab minimum 0.2 mm)
+header_bottom = 11.0       # y of the header separator line
+header_left = 12.6         # header text starts right of the ring-hole keep-out
+footer_top = 51.0          # footer text baseline zone starts here

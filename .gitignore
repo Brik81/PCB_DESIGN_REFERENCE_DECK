@@ -4,3 +4,9 @@
 _autosave-*
 *.kicad_prl
 fp-info-cache
+
+# generated / local
+.history/
+__pycache__/
+output/packages/
+output/full_build.log

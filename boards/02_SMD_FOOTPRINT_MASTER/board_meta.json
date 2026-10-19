@@ -1,0 +1,172 @@
+{
+ "chip_bodies_mm": {
+  "01005": [
+   0.4,
+   0.2
+  ],
+  "0201": [
+   0.6,
+   0.3
+  ],
+  "0402": [
+   1.0,
+   0.5
+  ],
+  "0603": [
+   1.6,
+   0.8
+  ],
+  "0805": [
+   2.0,
+   1.25
+  ],
+  "1206": [
+   3.2,
+   1.6
+  ],
+  "1210": [
+   3.2,
+   2.5
+  ],
+  "1812": [
+   4.5,
+   3.2
+  ],
+  "2010": [
+   5.0,
+   2.5
+  ],
+  "2512": [
+   6.3,
+   3.2
+  ]
+ },
+ "packages": [
+  "Resistor_SMD:R_01005_0402Metric",
+  "Resistor_SMD:R_0201_0603Metric",
+  "Resistor_SMD:R_0402_1005Metric",
+  "Resistor_SMD:R_0603_1608Metric",
+  "Resistor_SMD:R_0805_2012Metric",
+  "Resistor_SMD:R_1206_3216Metric",
+  "Resistor_SMD:R_1210_3225Metric",
+  "Resistor_SMD:R_1812_4532Metric",
+  "Resistor_SMD:R_2010_5025Metric",
+  "Resistor_SMD:R_2512_6332Metric",
+  "Package_TO_SOT_SMD:SOT-23",
+  "Package_TO_SOT_SMD:SOT-323_SC-70",
+  "Package_TO_SOT_SMD:SOT-363_SC-70-6",
+  "Package_TO_SOT_SMD:SOT-89-3",
+  "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+  "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+  "Package_SO:MSOP-8_3x3mm_P0.65mm",
+  "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+  "Package_SO:SSOP-16_3.9x4.9mm_P0.635mm",
+  "Package_SO:TSSOP-14_4.4x5mm_P0.65mm",
+  "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+  "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm",
+  "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm",
+  "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm_EP1.66x2.38mm",
+  "Package_DFN_QFN:QFN-16-1EP_3x3mm_P0.5mm_EP1.75x1.75mm",
+  "Package_SO:PowerPAK_SO-8_Single"
+ ],
+ "reserved_panels": {
+  "F": [
+   "ring hole",
+   "header",
+   "chips",
+   "sot",
+   "legend"
+  ],
+  "B": [
+   "ring hole",
+   "header",
+   "footer",
+   "so",
+   "chip table",
+   "notes"
+  ]
+ },
+ "reserved_rects": {
+  "F": [
+   [
+    "ring hole",
+    1.6,
+    1.6,
+    11.5,
+    11.5
+   ],
+   [
+    "header",
+    12.2,
+    1.6,
+    84.0,
+    11.0
+   ],
+   [
+    "chips",
+    1.6,
+    11.8,
+    84.0,
+    27.1
+   ],
+   [
+    "sot",
+    1.6,
+    27.6,
+    84.0,
+    41.49
+   ],
+   [
+    "legend",
+    1.6,
+    42.2,
+    84.0,
+    52.300000000000004
+   ]
+  ],
+  "B": [
+   [
+    "ring hole",
+    1.5999999999999943,
+    1.6,
+    11.5,
+    11.5
+   ],
+   [
+    "header",
+    12.199999999999989,
+    1.6,
+    84.0,
+    11.0
+   ],
+   [
+    "footer",
+    1.5999999999999943,
+    50.92999999999999,
+    84.0,
+    52.379999999999995
+   ],
+   [
+    "so",
+    1.5999999999999943,
+    11.8,
+    84.0,
+    27.690000000000005
+   ],
+   [
+    "chip table",
+    28.999999999999993,
+    28.4,
+    84.0,
+    49.7
+   ],
+   [
+    "notes",
+    1.5999999999999943,
+    28.4,
+    27.39999999999999,
+    49.7
+   ]
+  ]
+ }
+}

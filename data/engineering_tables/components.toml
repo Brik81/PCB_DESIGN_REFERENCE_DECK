@@ -1,0 +1,37 @@
+# Component marking codes printed on card 12.
+# status: VERIFIED | CROSS-CHECKED | SECONDARY (widely tabulated, primary not read) | UNVERIFIED
+
+[color_code]
+title = "Resistor colour code"
+source = "IEC 60062 marking codes for resistors and capacitors (as widely tabulated)"
+status = "SECONDARY"
+# colour, digit, multiplier exponent, tolerance
+rows = [
+  ["black", "0", "0", ""], ["brown", "1", "1", "±1 %"], ["red", "2", "2", "±2 %"], ["orange", "3", "3", ""],
+  ["yellow", "4", "4", ""], ["green", "5", "5", "±0.5 %"], ["blue", "6", "6", "±0.25 %"], ["violet", "7", "7", "±0.1 %"],
+  ["grey", "8", "8", "±0.05 %"], ["white", "9", "9", ""], ["gold", "", "-1", "±5 %"], ["silver", "", "-2", "±10 %"],
+]
+
+[eia96_multiplier]
+title = "EIA-96 SMD resistor multiplier letters"
+source = "EIA-96 marking system (IEC 60062 three-character code) as widely tabulated"
+status = "SECONDARY"
+rows = [["Z", "0.001"], ["Y/R", "0.01"], ["X/S", "0.1"], ["A", "1"], ["B", "10"], ["C", "100"], ["D", "1k"], ["E", "10k"], ["F", "100k"]]
+
+[cap_tolerance]
+title = "Capacitor tolerance letters"
+source = "IEC 60062 tolerance code letters"
+status = "SECONDARY"
+rows = [["B", "±0.1 pF"], ["C", "±0.25 pF"], ["D", "±0.5 pF"], ["F", "±1 %"], ["G", "±2 %"], ["J", "±5 %"], ["K", "±10 %"], ["M", "±20 %"], ["Z", "+80/−20 %"]]
+
+[dielectrics]
+title = "Ceramic capacitor dielectric codes (EIA RS-198)"
+source = "EIA RS-198 class 1 / class 2 codes as widely tabulated"
+status = "SECONDARY"
+rows = [["C0G/NP0", "0 ±30 ppm/K", "−55..125 °C"], ["X7R", "±15 %", "−55..125 °C"], ["X5R", "±15 %", "−55..85 °C"], ["Y5V", "+22/−82 %", "−30..85 °C"]]
+
+[refdes]
+title = "Reference designator prefixes"
+source = "IEEE 315 / ASME Y14.44 conventions as commonly used"
+status = "SECONDARY"
+rows = [["R", "resistor"], ["C", "capacitor"], ["L", "inductor"], ["D", "diode, LED"], ["Q", "transistor"], ["U", "IC"], ["J/P", "connector"], ["K", "relay"], ["F", "fuse"], ["Y", "crystal"], ["T", "transformer"], ["SW", "switch"], ["FB", "ferrite bead"], ["TP", "test point"]]
